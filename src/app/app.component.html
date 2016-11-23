@@ -1,3 +1,93 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar style="padding-left: 0;" color="primary">
+	<img *ngIf="mobile" style="width: 58px;" src="https://developers.google.com/_static/898735793c/images/gdg-program-icon.png" alt="Logo GDG ">
+	<img *ngIf="!mobile" style="width: 130px;" src="https://developers.google.com/_static/898735793c/images/GDG-program-logo.png" alt="Brand GDG">
+	
+	<button class="app-icon-button" (click)="mobile = !mobile">
+		<i class="material-icons app-toolbar-menu">menu</i>
+	</button>
+
+	<h3 style="margin-left: 5px;">Angular Material2</h3>
+
+	<span class="app-toolbar-filler"></span>
+
+	<!-- menu opens when trigger button is clicked -->
+	<button md-icon-button [md-menu-trigger-for]="menu">
+		<md-icon>more_vert</md-icon>
+	</button>
+
+	<md-menu x-position="before" #menu="mdMenu">
+			<button md-menu-item> Refresh </button>
+			<button md-menu-item> Settings </button>
+			<button md-menu-item> Help </button>
+			<button md-menu-item disabled> Sign Out </button>
+	</md-menu>
+</md-toolbar>
+
+<md-sidenav-layout class="left-navigation" style="top: 64px;" fullscreen>
+
+  <md-sidenav #sidenav mode="side" class="app-sidenav" (window:resize)="onResize($event)" opened="true">
+		<div>
+			<button md-button class="md-primary" [routerLink]="['/']" [routerLinkActive]="['is-active']" [routerLinkActiveOptions]="{ exact: true }">
+				<md-icon>dashboard</md-icon>
+				<span [hidden]="mobile">Dashboard</span>
+			</button>
+		</div>
+		
+		<div>
+			<button md-button class="md-accent" [routerLink]="['/meetings']" [routerLinkActive]="['is-active']">
+				<md-icon>event</md-icon>
+				<span [hidden]="mobile">Meetings</span>
+			</button>
+		</div>
+
+		<div>
+		 	<button md-button class="md-primary" [routerLink]="['/about-us']" [routerLinkActive]="['is-active']">
+				<md-icon>favorite</md-icon>
+				<span [hidden]="mobile">&nbsp;About Us</span>
+		 	</button>
+		</div>
+
+		<div>
+			<button md-button class="md-primary" [routerLink]="['/location']" [routerLinkActive]="['is-active']">
+				<md-icon md-font-set="material-icons">pin_drop</md-icon>
+				<span [hidden]="mobile">Location</span>
+			</button>
+		</div>
+
+		<div>
+			<button md-button class="md-primary" [routerLink]="['/team']" [routerLinkActive]="['is-active']">
+				<md-icon md-font-set="material-icons">people</md-icon>
+				<span [hidden]="mobile">Our team</span>
+			</button>
+		</div>
+
+		<div>
+			<button md-button class="md-warn" [routerLink]="['/community']" [routerLinkActive]="['is-active']">
+				<md-icon md-font-set="material-icons">group_work</md-icon>
+				<span [hidden]="mobile">Community</span>
+			</button>
+		</div>
+  </md-sidenav>
+
+	<!-- Routed views go here -->
+	<router-outlet></router-outlet>
+
+	<footer >
+		<div class="footer-margin">
+			<md-grid-list cols="2" rowHeight="3em">
+				<md-grid-tile>
+					<span class="grid-left">Angular2 GDG © 2016</span>
+				</md-grid-tile>
+				<md-grid-tile style="text-align: right">
+					<span class="grid-right">
+						Created with
+						<md-icon class="md-icon-xs" style="color: #ff4081;">favorite</md-icon>
+						by
+						<a href="https://www.linkedin.com/in/mariopadillaspain" target="_blank" class="footer-link">Mario Padilla</a>
+					</span>
+				</md-grid-tile>
+			</md-grid-list>
+		</div>
+	</footer>
+
+</md-sidenav-layout>

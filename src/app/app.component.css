@@ -1,0 +1,36 @@
+.app-sidenav button{
+    width: 100%;
+    text-align: left;
+    min-width: 58px;
+    padding: 10px 16px;
+}
+
+.footer-link{
+    color: black;
+    text-decoration: none;
+}
+
+.footer-link:hover{
+    color: #ff4081;
+    text-decoration: none;
+}
+
+.footer-margin{
+    margin: 0 40px 20px 40px;
+}
+
+.grid-left{
+    position: absolute;
+    left: 5px;
+}
+
+.grid-right{
+    position: absolute;
+    right: 5px;
+}
+
+.md-icon-xs{
+     font-size: 12px;
+     width:12px;
+     height: 12px;
+}
