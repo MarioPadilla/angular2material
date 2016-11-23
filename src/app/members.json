@@ -1,0 +1,15 @@
+{
+  "data": [
+    { "id": 1, "name": "Fanta Member", "description": "I am a description" },
+    { 
+        "id": 2,
+        "name": "Mario Padilla",
+        "description":"Estudiante de Ingeniería del Software.<br>Estudiante!? Sí, he dicho estudiante...y Organizador del GDG Málaga.<p>Fiel amante de la Cerveza y los deportes Extremos. Defensor del 'Piedra, Papel, Tijera, Lagarto, Spock'.<br>Me gusta aprender/compartir nuevas tecnologías y colaborar en proyectos abiertos o sin ánimo de lucro.</p>",
+        "img":"./img/mario.jpg",
+        "role": "...no seee no see",
+        "team": "Kids + diversión"
+    },
+    { "id": 3, "name": "Magneta", "description": "I am a description" },
+    { "id": 4, "name": "Tornado", "description": "I am a description" }
+  ]
+}
