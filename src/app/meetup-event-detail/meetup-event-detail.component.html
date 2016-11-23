@@ -1,0 +1,30 @@
+<div class="app-content">
+  <md-card>
+    <md-card-header>
+        <img md-card-avatar src="{{meetupGroup?.group_photo?.thumb_link}}">
+        <md-card-title>{{meetupGroup.name}}</md-card-title>
+        <md-card-subtitle>{{meetupGroup.city}}</md-card-subtitle>
+    </md-card-header>
+    	<md-card-subtitle>
+				<p>
+					<md-icon class="md-icon-pbottom ">schedule</md-icon>{{meetupEvent.time | date:'shortTime'}} &nbsp;
+					<md-icon class="md-icon-pbottom">event</md-icon>{{meetupEvent.time | date:'mediumDate' }}
+				</p>
+				<p *ngIf="meetupEvent.venue">{{meetupEvent?.venue?.name}} <br>
+				{{meetupEvent?.venue?.address_1}} <br>
+				{{meetupEvent?.venue?.city}}, {{meetupEvent?.venue?.localized_country_name}}</p>
+        <p>
+          <md-icon class="md-icon-pbottom">place</md-icon>
+          <a href="https://maps.google.com/?q={{meetupEvent?.venue?.lat}},{{meetupEvent?.venue?.lon}}" target="_blank">Go to Maps</a>
+        </p>
+			</md-card-subtitle>
+    <md-card-content>
+        <h2>{{meetupEvent.name}}</h2>   
+        <div class="wrap-innerHTML" [innerHTML]="meetupEvent.description"></div>
+    </md-card-content>
+    <md-card-actions align="end">
+          <a md-raised-button color="warn" href="{{meetupEvent.link}}" target="_blank">JOIN</a>
+          <button md-button>SHARE</button>
+    </md-card-actions>
+  </md-card>
+</div>

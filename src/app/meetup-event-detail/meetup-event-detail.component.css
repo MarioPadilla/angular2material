@@ -1,0 +1,8 @@
+:host >>> .wrap-innerHTML img {
+    width: 100%;
+}
+
+md-icon.md-icon-pbottom{
+    vertical-align: bottom;
+    margin-right: 3px;
+}
