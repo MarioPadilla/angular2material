@@ -1,0 +1,55 @@
+<div class="app-content">
+  <md-card>
+	<h1>Tour of Events</h1>
+
+	<p class="error" *ngIf="errorMessage">error: {{errorMessage}}</p>
+  </md-card>
+
+	<md-spinner *ngIf="loading" color="accent" class="app-spinner"></md-spinner>
+
+	<md-card *ngFor="let meeting of meetupEvents">
+		<md-card-title-group>
+			<img md-card-sm-image src="{{meetupGroup?.group_photo?.thumb_link}}" alt="meetup logo">
+			<md-card-title>{{meeting?.name}}
+				<span *ngIf="meeting.duration" style="color: rgba(0, 0, 0, 0.54); font-size: 14px;">({{meeting.duration | date:'h:mm'}}h)</span>
+			</md-card-title>
+			<md-card-subtitle>
+				<p>
+					<md-icon class="md-icon-pbottom ">schedule</md-icon>{{meeting.time | date:'shortTime'}} &nbsp;
+					<md-icon class="md-icon-pbottom">event</md-icon>{{meeting.time | date:'mediumDate' }}
+				</p>
+				<p *ngIf="meeting.venue">{{meeting.venue?.name}} <br>
+				{{meeting.venue?.address_1}} <br>
+				{{meeting.venue?.city}}, {{meeting.venue?.localized_country_name}}</p>
+			</md-card-subtitle>
+		</md-card-title-group>
+		<a md-button class="md-accent" [routerLink]="['/meeting', meeting.id]" >
+			  <md-icon style="vertical-align: middle;">info</md-icon> + details
+		</a>
+	</md-card>
+
+  <!--<md-grid-list cols="3" gutterSize="25px">
+		<md-grid-tile *ngFor="let meeting of meetupEvents" [colspan]="1" [rowspan]="1">
+			<md-card>
+			<md-card-header>
+				<img md-card-avatar src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/014/0014014674.jpg">
+				<md-card-title>Header title</md-card-title>
+				<md-card-subtitle>Header subtitle</md-card-subtitle>
+			</md-card-header>
+			<img md-card-image src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/014/0014014674.jpg">
+			<md-card-title>
+				<span class="md-headline">{{meeting.name}} Default</span>
+			</md-card-title>
+			<md-card-content>
+				<h2>{{meeting.name}} Custom</h2>   
+				{{meeting.status}}
+				<p>Here is some more content</p>
+				<a md-button class="md-primary" [routerLink]="['/meeting', meeting.id]" >
+					+details
+				</a>
+			</md-card-content>
+			</md-card>
+		</md-grid-tile>
+  </md-grid-list>-->
+  
+</div>

@@ -1,0 +1,11 @@
+md-icon.md-icon-pbottom{
+    vertical-align: bottom;
+    margin-right: 3px;
+}
+
+.app-spinner {
+  height: 35px;
+  width: 35px;
+  margin-left: 25%;
+  display: inline-block;
+}
