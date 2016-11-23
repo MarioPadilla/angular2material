@@ -1,0 +1,30 @@
+<div class="app-content">
+    <!--<md-grid-list cols="3" gutterSize="25px">
+        <md-grid-tile *ngFor="let member of team" [colspan]="1" [rowspan]="1">-->
+    <div *ngFor="let member of (team | async)">
+         <div flex="25" layout="column" flex-sm="50" flex-xs="100"> 
+            <md-card>
+                <md-card-header>
+                    <img md-card-avatar src="http://imagenpng.com/wp-content/uploads/2016/09/fanta.jpg">
+                    <md-card-title>{{member.role || 'Header title'}}</md-card-title>
+                    <md-card-subtitle>{{member.team_name || 'Header subtitle'}}</md-card-subtitle>
+                </md-card-header>
+                <div style="text-align: center;">
+                    <img md-card-image style="margin-top: 0;" class="img-circular" [src]="member.img || 'http://imagenpng.com/wp-content/uploads/2016/09/fanta.jpg'" alt="team member">
+                </div>
+                <md-card-content>
+                    <h3>{{member.name}}</h3>
+                    <p [innerHtml]=member.description></p>
+                </md-card-content>
+
+                <md-card-actions align="end">
+                    <span style="padding: 10px;">
+                        <md-icon>favorite</md-icon>
+                    </span>
+                </md-card-actions>
+            </md-card>
+         </div>
+    </div> 
+        <!--</md-grid-tile>
+    </md-grid-list>-->
+</div>
