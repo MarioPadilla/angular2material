@@ -1,0 +1,19 @@
+.community-link{
+    color: #ff4081;
+    text-decoration: none;
+}
+
+:host>>>.md-list-item:hover{
+    background-color: rgba(255, 64, 129, 0.12);
+}
+
+md-icon.md-icon-pbottom{
+    vertical-align: bottom;
+    margin-right: 3px;
+}
+
+.md-icon-sm{
+     font-size: 16px;
+     width:16px;
+     height: 16px;
+}

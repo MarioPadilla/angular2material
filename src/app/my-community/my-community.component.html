@@ -1,0 +1,17 @@
+<div class="app-content">
+  <md-card>
+    <h2>Random Similar Groups</h2>
+    <md-list>
+      <md-list-item *ngFor="let community of meetupGroups">
+        <img md-list-avatar src="{{community?.group_photo?.thumb_link}}" alt="{{community.name}} img">
+        <h3 md-line><a class="community-link" href="{{community.link}}" target="_blank">{{community.name}} </a></h3>
+        <p md-line>
+          <span>{{community.city}}</span>
+        </p>
+        <p md-line>
+          <span><md-icon class="md-icon-pbottom md-icon-sm">people</md-icon>{{community.members}} &nbsp;{{community.who}}</span>
+        </p>
+      </md-list-item>
+    </md-list>
+  </md-card>
+</div>
