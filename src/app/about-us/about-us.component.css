@@ -1,0 +1,9 @@
+.full-image{
+  width: 100%;
+  background-size: cover;
+  max-width: 1024px;
+}
+
+.app-content{
+    text-align: center;
+}
