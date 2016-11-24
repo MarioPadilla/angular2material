@@ -4,6 +4,13 @@
   max-width: 1024px;
 }
 
+.md-img{
+    width: 50%;
+    max-width: 400px;
+    min-width: 150px;
+    background-size: cover;
+}
+
 .app-content{
     text-align: center;
 }
