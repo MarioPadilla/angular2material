@@ -1,6 +1,13 @@
 <div class="app-content">
 	<md-card>
-
+		<div style="text-align: center;" >
+			<img class="md-img" src="https://lh3.googleusercontent.com/U5jev5wjC7Py_CILiINJn-GuxnmVPq-mRXRob-7BWMUHffdgfD1bCEhJlKq3du61PHZUNMcf=s630-fcrop64=1,317c16f5d15dccb8" alt="GDG MALAGA Logo">
+		</div>
+		<div *ngFor="let info of (infos | async); let last = last">
+			<h2>{{info.title}}</h2>
+			<p [innerHTML]="info.description"></p>
+			<br [hidden]=last>
+		</div>
 	</md-card>
 
 </div>
