@@ -1,44 +1,43 @@
-import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
-
-import { MeetupEvent }    from './meetup-event';
-import { Observable }     from 'rxjs/Observable';
+import { Injectable }           from '@angular/core';
+import { Http, Response, Jsonp} from '@angular/http';
+import { MeetupEvent }          from './meetup-event';
+import { Observable }           from 'rxjs/Observable';
 
 @Injectable()
 export class MeetupEventService {
   
   private urlBase = "https://api.meetup.com/copenhagenjs"; //'app/events.json';
 
-  private urlOptions = "?key=6d3237026313220269174f5d9f6e&sign=true";
+  private urlOptions = "?callback=JSONP_CALLBACK&key=6d3237026313220269174f5d9f6e&sign=true";
   private urlEvents = this.urlBase + "/events";
   
   private urlEventsList = this.urlEvents + this.urlOptions;
   private urlSimilarGroups=this.urlBase + "/similar_groups" + this.urlOptions;
 
-  constructor (private http: Http) {}
+  constructor (private http: Http, private _jsonp: Jsonp) {}
 
-  getEvents (): Observable<MeetupEvent[]> {
-    return this.http.get(this.urlEventsList + "&photo-host=public&page=20")
-                    .map((res:Response) => res.json())
+  getEvents (): Observable<any[]> {
+    return this._jsonp.get(this.urlEventsList + "&photo-host=public&page=20")
+                    .map((res:Response) => res.json().data)
                     .catch(this.handleError);
   }
 
   getEvent (id: number): Observable<MeetupEvent> {
 
-    return this.http.get(this.urlEvents + "/" + id + this.urlOptions)
-                    .map((res:Response) => res.json())
+    return this._jsonp.get(this.urlEvents + "/" + id + this.urlOptions)
+                    .map((res:Response) => res.json().data)
                     .catch(this.handleError);
   }
 
   getGroup (): Observable<any> {
-      return this.http.get(this.urlBase + this.urlOptions)
-                    .map((res:Response) => res.json())
+      return this._jsonp.get(this.urlBase + this.urlOptions)
+                    .map((res:Response) => res.json().data)
                     .catch(this.handleError);
   }
 
   getSimilarGroups (): Observable<any[]> {
-    return this.http.get(this.urlSimilarGroups + "&photo-host=public&page=20")
-                    .map((res:Response) => res.json())
+    return this._jsonp.get(this.urlSimilarGroups + "&photo-host=public&page=20")
+                    .map((res:Response) => res.json().data)
                     .catch(this.handleError);
   }
 
